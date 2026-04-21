@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TimetableTest {
 
     @Test
-    void testGetTrainingSessionsForDaySingleSession() {
+    void testGetTrainingSingleSession() {
         Timetable timetable = new Timetable();
 
         Group group = new Group("Акробатика для детей", Age.CHILD, 60);
@@ -25,7 +25,7 @@ public class TimetableTest {
     }
 
     @Test
-    void testGetTrainingSessionsForDayMultipleSessions() {
+    void testGetTrainingMultipleSessions() {
         Timetable timetable = new Timetable();
 
         Coach coach = new Coach("Васильев", "Николай", "Сергеевич");
@@ -65,7 +65,7 @@ public class TimetableTest {
     }
 
     @Test
-    void testGetTrainingSessionsForDayAndTime() {
+    void testGetTrainingDayAndTime() {
         Timetable timetable = new Timetable();
 
         Group group = new Group("Акробатика для детей", Age.CHILD, 60);
@@ -88,7 +88,7 @@ public class TimetableTest {
     }
 
     @Test
-    void testGetCountByCoachesSingleCoach() {
+    void testGetCountByCoachesSingle() {
         Timetable timetable = new Timetable();
 
 
@@ -118,7 +118,7 @@ public class TimetableTest {
     }
 
     @Test
-    void testGetCountByCoachesMultipleCoachesDifferentCounts() {
+    void testGetCountByCoachesMultiple() {
         Timetable timetable = new Timetable();
 
         Coach coach1 = new Coach("Иванов", "Иван", "Иванович"); // 2 занятия
@@ -160,7 +160,7 @@ public class TimetableTest {
     }
 
     @Test
-    void testGetCountByCoachesSameCountMultipleCoaches() {
+    void testGetSameCountMultipleCoaches() {
         Timetable timetable = new Timetable();
 
         Coach coachA = new Coach("Алексеев", "Алексей", "Алексеевич");
