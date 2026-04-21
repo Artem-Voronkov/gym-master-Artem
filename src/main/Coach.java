@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Coach {
 
     //фамилия
@@ -23,5 +25,20 @@ public class Coach {
 
     public String getMiddleName() {
         return middleName;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Coach coach = (Coach) obj;
+        return Objects.equals(surname, coach.surname) &&
+                Objects.equals(name, coach.name) &&
+                Objects.equals(middleName, coach.middleName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(surname, name, middleName);
     }
 }
