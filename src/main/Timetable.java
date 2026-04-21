@@ -5,13 +5,18 @@ public class Timetable {
             new HashMap<>();
 
     // Вложенный класс для статистики по тренерам
-    public static class CounterOfTrainings {
+    public static class CounterOfTrainings implements Comparable<CounterOfTrainings> {
         private final Coach coach;
         private final int count;
 
         public CounterOfTrainings(Coach coach, int count) {
             this.coach = coach;
             this.count = count;
+        }
+
+        @Override
+        public int compareTo(CounterOfTrainings other) {
+            return Integer.compare(other.getCount(), this.getCount());
         }
 
         // Геттеры для доступа к полям
@@ -92,12 +97,13 @@ public class Timetable {
             }
         }
 
-        // Сортируем по убыванию количества тренировок
         List<CounterOfTrainings> result = new ArrayList<>();
         for (Map.Entry<Coach, Integer> entry : coachCount.entrySet()) {
             result.add(new CounterOfTrainings(entry.getKey(), entry.getValue()));
         }
-        result.sort((a, b) -> Integer.compare(b.getCount(), a.getCount()));
+
+        Collections.sort(result);
+
 
         return result;
     }
